@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinzunyue.sys1.mapper.ProductMapper">
+
+ <!-- 通用查询映射结果 -->
+ <resultMap id="BaseResultMap" type="com.jinzunyue.sys1.bean.Product">
+  <id column="id" property="id" />
+  <result column="trace_code" property="traceCode" />
+  <result column="location_name" property="locationName" />
+  <result column="company_name" property="companyName" />
+  <result column="product_name" property="productName" />
+  <result column="production_date" property="productionDate" />
+  <result column="certification_type_name" property="certificationTypeName" />
+ </resultMap>
+
+</mapper>
