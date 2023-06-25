@@ -1,5 +1,5 @@
 # sourceCode
-SpringBoot+SpringSecurity+洗牌算法+溯源码+多模块
+SpringBoot+SpringSecurity登录认证+权限管理+洗牌算法+溯源码+多模块
 
 # Spring Security 的配置
 
