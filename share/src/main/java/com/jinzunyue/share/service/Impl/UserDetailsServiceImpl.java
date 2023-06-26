@@ -3,6 +3,7 @@ package com.jinzunyue.share.service.Impl;
 import com.jinzunyue.share.entity.Role;
 import com.jinzunyue.share.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

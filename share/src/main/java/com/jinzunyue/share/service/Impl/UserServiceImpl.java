@@ -7,6 +7,7 @@ import com.jinzunyue.share.entity.User;
 import com.jinzunyue.share.mapper.UserMapper;
 import com.jinzunyue.share.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,10 +16,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Cacheable(value = "user",key = "#username")
     public User findByUsername(String username) {
         return userMapper.findByUsername(username);
     }
 
+    @Cacheable(value = "role",key = "#userId")
     public List<Role> findRolesByUserId(Integer userId) {
         return userMapper.findRolesByUserId(userId);
     }
