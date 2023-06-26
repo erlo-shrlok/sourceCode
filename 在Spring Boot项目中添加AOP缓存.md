@@ -94,15 +94,16 @@ spring.cache.caffeine.spec=maximumSize=500,expireAfterAccess=600s
 
 ## 二、在本项目中的使用示例
 
-![image-20230625161432104](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230625161432104.png)
+![image](https://github.com/erlo-shrlok/sourceCode/assets/57678321/83767f71-a77e-49fc-ac5c-942bc1a48600)
+
 
 &emsp;对以上两个方法进行缓存，使得同一用户多次登陆不需要重复去数据库中查找用户信息和权限信息。
 
-![image-20230625161559693](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230625161559693.png)
+![image](https://github.com/erlo-shrlok/sourceCode/assets/57678321/13f86e5d-47fc-4346-89e7-9bb1e4bddccb)
 
 &emsp;其中，配置文件需要做出如下配置
 
-![image-20230625161641461](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230625161641461.png)
+![image](https://github.com/erlo-shrlok/sourceCode/assets/57678321/9737049f-778c-4a82-beb8-27550774a084)
 
 [存在问题](#AOP缓存问题)
 
@@ -232,7 +233,7 @@ try (SqlSession session = sqlSessionFactory.openSession()) {
 
 &emsp;本项目的登录方法需要调用下面两个service层方法：
 
-![image-20230625175944423](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230625175944423.png)
+![image](https://github.com/erlo-shrlok/sourceCode/assets/57678321/8ec6b125-e7d7-4aca-8f0a-7cad033fed8f)
 
 &emsp;如果你想要确认这两个方法调用是否使用同一个SqlSession，[你可以在这两个方法中添加一些日志语句，打印出SqlSession的ID或hashCode](#3)。如果这两个值相同，那么这两个方法调用就是使用同一个SqlSession。
 
@@ -460,7 +461,7 @@ mybatis.config-location=classpath:mybatis-config.xml
 
 &emsp;请注意，这个配置可能不会在所有的控制台上工作。一些控制台可能不支持ANSI颜色代码，或者需要额外的配置才能显示颜色。你应该查阅你的控制台的文档，以获取更详细和准确的信息。
 
-![image-20230626134950225](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230626134950225.png)
+![image](https://github.com/erlo-shrlok/sourceCode/assets/57678321/512e5a61-e6dc-4c86-a3bd-6db6cbd904d1)
 
 &emsp;由上图可以了解到第一次发送login请求使用了880ms而第二次就减少到了108ms。
 
