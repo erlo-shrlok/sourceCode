@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- POM文件的父POM，用于从中继承一些通用的依赖或配置 -->
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.12</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.jinzunyue</groupId>
+        <artifactId>mulsys4</artifactId>
+        <version>1.0.0</version>
     </parent>
-    <groupId>com.jinzunyue</groupId>
+
+    <!-- 本模块的唯一标识符-->
     <artifactId>share</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>share</name>
-    <description>share</description>
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+
+    <!-- 模块的描述 -->
+    <description>通用工具</description>
+
     <dependencies>
+        <!-- 项目的依赖项，这些依赖将由Maven自动下载并添加到项目的classpath中 -->
+
         <!--SLF4J日志依赖-->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -30,13 +32,11 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-
         <!--SpringBoot对AOP的支持-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-
         <!--Spring内置缓存支持-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,7 +47,6 @@
             <groupId>com.github.ben-manes.caffeine</groupId>
             <artifactId>caffeine</artifactId>
         </dependency>
-
         <!--hutool工具包-->
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -84,6 +83,7 @@
             <artifactId>velocity</artifactId>
             <version>1.7</version>
         </dependency>
+        <!-- spring security 安全认证 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -144,21 +144,5 @@
         </dependency>
 
     </dependencies>
-
-    <build>
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-    </build>
-    <repositories>
-        <repository>
-            <id>clojars</id>
-            <name>Clojars</name>
-            <url>https://repo.clojars.org/</url>
-        </repository>
-    </repositories>
 
 </project>
