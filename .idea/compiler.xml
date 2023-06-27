@@ -15,9 +15,9 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="mulsys4" options="" />
-      <module name="share" options="-parameters" />
-      <module name="sys1" options="-parameters" />
-      <module name="sys2" options="-parameters" />
+      <module name="share" options="" />
+      <module name="sys1" options="" />
+      <module name="sys2" options="" />
     </option>
   </component>
 </project>

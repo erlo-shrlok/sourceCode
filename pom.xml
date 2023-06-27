@@ -8,12 +8,23 @@
 	<version>1.0.0</version> <!-- 项目版本 -->
 
 	<name>mulsys4</name> <!-- 项目名 -->
-	<description>mulsys4</description> <!-- 项目描述 -->
+	<description>溯源码系统</description> <!-- 项目描述 -->
 
 	<!-- 自定义一些属性值，可以在本 POM 文件中进行重用 -->
 	<properties>
 		<!-- 这里定义了一些版本号和编码格式，以便在后面的依赖声明和构建插件配置中使用 -->
 		<java.version>1.8</java.version>
+		<slf4j.version>1.7.30</slf4j.version>
+		<logback.version>1.2.3</logback.version>
+		<hutool.version>5.7.16</hutool.version>
+		<mybatis-plus-generator.version>3.5.2</mybatis-plus-generator.version>
+		<mybatis-plus-boot-starter.version>3.4.3.3</mybatis-plus-boot-starter.version>
+		<velocity.version>1.7</velocity.version>
+		<mybatis-spring-boot-starter.version>2.3.1</mybatis-spring-boot-starter.version>
+		<mysql-connector-java.version>8.0.32</mysql-connector-java.version>
+		<jjwt.version>0.9.1</jjwt.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<aspectjrt.version>1.9.6</aspectjrt.version>
 	</properties>
 
 	<!-- 子模块声明，用于声明本项目包含的子模块 -->
@@ -29,141 +40,112 @@
 	<!-- 依赖管理，用于统一管理项目中的所有依赖的版本 -->
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- SpringBoot的依赖配置-->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.2.13.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 			<!-- 这里列出了项目中用到的所有依赖，包括各种库和框架等 -->
+			<!--AOP-->
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjrt</artifactId>
+				<version>${aspectjrt.version}</version>
+			</dependency>
 			<!--SLF4J日志依赖-->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>1.7.30</version>
+				<version>${slf4j.version}</version>
 			</dependency>
+
 			<!--SLF4J的实现：：Logback-->
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
-				<version>1.2.3</version>
-			</dependency>
-			<!--SpringBoot对AOP的支持-->
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-aop</artifactId>
-			</dependency>
-			<!--Spring内置缓存支持-->
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-cache</artifactId>
-			</dependency>
-			<!--Caffeine缓存库-->
-			<dependency>
-				<groupId>com.github.ben-manes.caffeine</groupId>
-				<artifactId>caffeine</artifactId>
+				<version>${logback.version}</version>
 			</dependency>
 			<!--hutool工具包-->
 			<dependency>
 				<groupId>cn.hutool</groupId>
 				<artifactId>hutool-all</artifactId>
-				<version>5.7.16</version>
-			</dependency>
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>8.0.29</version>
-			</dependency>
-			<!--freemarker-->
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-freemarker</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
+				<version>${hutool.version}</version>
 			</dependency>
 			<!--代码生成-->
 			<dependency>
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-generator</artifactId>
-				<version>3.5.2</version>
-			</dependency>
-			<dependency>
-				<groupId>com.baomidou</groupId>
-				<artifactId>mybatis-plus-boot-starter</artifactId>
-				<version>3.4.3.3</version>
+				<version>${mybatis-plus-generator.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.velocity</groupId>
 				<artifactId>velocity</artifactId>
-				<version>1.7</version>
-			</dependency>
-			<!-- spring security 安全认证 -->
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-security</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${velocity.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.mybatis.spring.boot</groupId>
 				<artifactId>mybatis-spring-boot-starter</artifactId>
-				<version>2.3.1</version>
-			</dependency>
-
-			<dependency>
-				<groupId>com.mysql</groupId>
-				<artifactId>mysql-connector-j</artifactId>
-				<scope>runtime</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-test</artifactId>
-				<scope>test</scope>
+				<version>${mybatis-spring-boot-starter.version}</version>
 			</dependency>
 			<!-- MySQL JDBC driver -->
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>8.0.32</version>
+				<version>${mysql-connector-java.version}</version>
 			</dependency>
 			<!-- MyBatis-Plus starter -->
 			<dependency>
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-boot-starter</artifactId>
-				<version>3.4.3.3</version>
-			</dependency>
-			<dependency>
-				<groupId>org.testng</groupId>
-				<artifactId>testng</artifactId>
-				<version>RELEASE</version>
-				<scope>compile</scope>
+				<version>${mybatis-plus-boot-starter.version}</version>
 			</dependency>
 			<!--JSON Web Token-->
 			<dependency>
 				<groupId>io.jsonwebtoken</groupId>
 				<artifactId>jjwt</artifactId>
-				<version>0.9.1</version>
-			</dependency>
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<scope>test</scope>
+				<version>${jjwt.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
-	<!-- 这里可以直接声明项目的依赖，但在这个项目中，所有的依赖都在 dependencyManagement 中声明了，所以这里是空的 -->
+	<!-- 这里可以直接声明项目的依赖-->
 
 	<!-- 构建配置，包括了项目构建过程中用到的插件等信息 -->
 	<build>
 		<plugins>
 			<!-- 这里配置了 maven-compiler-plugin 插件，用于编译项目的Java代码 -->
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+				<configuration>
+					<forkCount>1</forkCount>
+					<reuseForks>false</reuseForks>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+<!--			防止 Maven 在找不到 web.xml 文件时失败-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<!-- 其他配置 -->
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -171,11 +153,30 @@
 	<!-- 仓库声明，用于声明项目中用到的Maven仓库地址 -->
 	<repositories>
 		<!-- 这里指定了阿里云的 Maven 仓库 -->
+		<repository>
+			<id>public</id>
+			<name>aliyun nexus</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
 	</repositories>
 
 	<!-- 插件仓库声明，用于声明项目中用到的Maven插件仓库地址 -->
 	<pluginRepositories>
 		<!-- 这里指定了阿里云的 Maven 插件仓库 -->
+		<pluginRepository>
+			<id>public</id>
+			<name>aliyun nexus</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
 	</pluginRepositories>
 
 </project>
