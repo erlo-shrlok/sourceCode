@@ -18,6 +18,17 @@
     <description>通用工具</description>
 
     <dependencies>
+        <!-- 验证码 -->
+        <dependency>
+            <groupId>com.github.penggle</groupId>
+            <artifactId>kaptcha</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>javax.servlet-api</artifactId>
+                    <groupId>javax.servlet</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <!--AOP-->
         <dependency>
             <groupId>org.aspectj</groupId>

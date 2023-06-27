@@ -5,6 +5,9 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+/**
+ * 使用AOP进行日志记录
+ */
 @Aspect
 @Component
 public class LoggingAspect {

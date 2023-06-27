@@ -25,6 +25,7 @@
 		<jjwt.version>0.9.1</jjwt.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aspectjrt.version>1.9.6</aspectjrt.version>
+		<kaptcha.version>2.3.2</kaptcha.version>
 	</properties>
 
 	<!-- 子模块声明，用于声明本项目包含的子模块 -->
@@ -33,6 +34,7 @@
 		<module>share</module>
 		<module>sys1</module>
 		<module>sys2</module>
+		<module>framowork</module>
 	</modules>
 
 	<packaging>pom</packaging> <!-- 指定了项目的打包方式，这里为pom，即这是一个聚合项目，它将会把各个模块聚合在一起进行构建 -->
@@ -40,6 +42,12 @@
 	<!-- 依赖管理，用于统一管理项目中的所有依赖的版本 -->
 	<dependencyManagement>
 		<dependencies>
+			<!-- 验证码 -->
+			<dependency>
+				<groupId>com.github.penggle</groupId>
+				<artifactId>kaptcha</artifactId>
+				<version>${kaptcha.version}</version>
+			</dependency>
 
 			<!-- SpringBoot的依赖配置-->
 			<dependency>
